@@ -12,9 +12,7 @@
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
-  - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -75,24 +73,12 @@ Install this project with:
 - cd Oop-school-library
 - bundle install
 
-### Usage
-
-To run the project execute the following command:
-
-- [N/A]
-
 ### Run tests
 
 To run tests, run the following command:
 
 - `rubocop --color`
 
-
-### Deployment
-
-You can deploy this project using:
-
-- [N/A]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,7 +109,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Zuwairanajma/school-library/issues).
+Feel free to check the [issues page](https://github.com/Zuwairanajma/school_library/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
