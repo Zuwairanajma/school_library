@@ -43,6 +43,7 @@
 ### Key Features <a name="key-features"></a>
 
 - **[school-library-classes]**
+- **[decorate-library-classes]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
