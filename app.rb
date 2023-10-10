@@ -36,7 +36,8 @@ class App
   end
 
   def create_person()
-    puts 'press 1 for student, 2 for teacher'
+    # puts 'press 1 for student, 2 for teacher'
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
     is_student = gets.chomp.to_i
     puts 'Enter person name:'
     name = gets.chomp
@@ -76,14 +77,14 @@ class App
   # Creating rental method
 
   def create_rental
-    puts 'select book by number'
+    puts 'select a book by number'
     @books.each_with_index do |book, index|
       puts "#{index} - Title: #{book.title}, Author: #{book.author}"
     end
 
     book_index = gets.chomp.to_i
 
-    puts 'select person by number'
+    puts 'select a person by number'
     @person.each_with_index do |person, index|
       puts "#{index} - #{person.class}, Name: #{person.name}"
     end
@@ -99,9 +100,9 @@ class App
 
   # Listing rentals method
   def list_rentals_for_person
-    puts 'all id'
     @rentals.each do |rental|
-      puts " #{rental.person.id}, Name: #{rental.person.name}"
+      puts "id of person: #{rental.person.id}"
+      puts "Name: #{rental.person.name}"
     end
     puts 'select id'
     id = gets.chomp.to_i
@@ -109,7 +110,7 @@ class App
     puts 'All Rentals for this id:'
     @rentals.each do |rental|
       if rental.person.id == id
-        puts "Title: #{rental.book.title}, Author: #{rental.book.author}, Date: #{rental.date}"
+        puts "Date: #{rental.date}, Title: #{rental.book.title}, Author: #{rental.book.author}"
 
       else
         puts 'rental not found'
