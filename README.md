@@ -1,5 +1,11 @@
-# Oop-School-library
+<a name="readme-top"></a>
+<div align="center">
+  <img src="Library.png" alt="leaderboard logo" width="140"  height="auto" />
+  <br/>
 
+  <h2><b>OOP SCHOOL LIBRARY</b></h2>
+
+</div>
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
@@ -18,7 +24,6 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->

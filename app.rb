@@ -100,20 +100,23 @@ class App
 
   # Listing rentals method
   def list_rentals_for_person
+    puts 'All Rentals:'
     @rentals.each do |rental|
       puts "id of person: #{rental.person.id}"
       puts "Name: #{rental.person.name}"
     end
-    puts 'select id'
+
+    puts 'Select ID:'
     id = gets.chomp.to_i
 
-    puts 'All Rentals for this id:'
-    @rentals.each do |rental|
-      if rental.person.id == id
-        puts "Date: #{rental.date}, Title: #{rental.book.title}, Author: #{rental.book.author}"
+    rentals_found = @rentals.select { |rental| rental.person.id == id }
 
-      else
-        puts 'rental not found'
+    if rentals_found.empty?
+      puts 'No rentals found for the specified ID.'
+    else
+      puts 'All Rentals for this ID:'
+      rentals_found.each do |rental|
+        puts "Date: #{rental.date}, Title: #{rental.book.title}, Author: #{rental.book.author}"
       end
     end
   end
