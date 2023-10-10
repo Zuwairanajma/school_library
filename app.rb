@@ -8,28 +8,29 @@ require_relative 'teacher'
 class App
     attr_reader :books, :person, :rentals, :classroom
 
-    def initialize
+  def initialize
         @books = []
         @person = []
         @rentals = []
     end
 
 # Methods to list books and people
-    def list_all_books()
-        puts 'All Books:'
-        @books.each do |book| 
-            puts "Title: #{book.title},Author: #{book.author}"
-        end
+  def list_all_books()
+    puts 'All Books:'
+    @books.each do |book| 
+      puts "Title: #{book.title}, Author: #{book.author}"
     end
+ end
 
     def list_all_people()
         puts 'All People:'
         @person.each do |person|
-            puts "#{person.class}, Name: #{person.name}, age: #{person.age}"
+        puts "#{person.class}, Name: #{person.name}, age: #{person.age}"
 
-            if person.instance_of?(Teacher) puts "Specialization: [#{person.specialization}]"
+         if person.instance_of?(Teacher) 
+        puts "Specialization: [#{person.specialization}]"
             else 
-                puts "Permission: #{person.parent_permission}"
+            puts "Permission: #{person.parent_permission}"
             end
         end 
     end
@@ -52,7 +53,7 @@ def create_person()
     when 2
         print 'What is the teachers specialization: '
         specialization = gets.chomp
-        teacher = Teacher.new(age, specialization, name)
+        teacher = Teacher.new(age, name, specialization)
         @person << teacher
     end
 
@@ -69,7 +70,6 @@ def create_book
 
     book = Book.new(title, author)
     @book << book
-
     puts 'Book created successfully.'
 end
 
@@ -81,10 +81,10 @@ def create_rental
         puts "#{index} - Title: #{book.title}, Author: #{book.author}"
     end
 
-    book_index = getd.chomp.to_i
+    book_index = gets.chomp.to_i
 
     puts 'select person by number'
-    @person.each_with_indexdo |person, index|
+    @person.each_with_index do |person, index|
     puts "#{index} - #{person.class}, Name: #{person.name}"
 end
 
@@ -106,6 +106,7 @@ def list_rentals_for_person
     end
     puts 'select id'
     id = gets.chomp.to_i
+
     puts 'All Rentals for this id:'
     @rentals.each do |rental|
         if rental.person.id == id
@@ -115,5 +116,5 @@ def list_rentals_for_person
             puts 'rental not found'
         end
     end
-end
+ end
 end
