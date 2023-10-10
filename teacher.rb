@@ -8,14 +8,6 @@ class Teacher < Person
     @specialization = specialization
   end
 
-  # def get_name
-  #   @name
-  # end
-
-  # def get_age
-  #   @age
-  # end
-
   def can_use_services?
     true
   end
