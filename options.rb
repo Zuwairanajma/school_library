@@ -1,5 +1,5 @@
-module Options   
-def select_option(selected, app)
+module Options
+  def select_option(selected, app)
     case selected
     when 1
       app.list_all_books
@@ -14,7 +14,7 @@ def select_option(selected, app)
     when 6
       app.list_rentals_for_person
     else
-        show_invalid_input
+      show_invalid_input
     end
   end
 end

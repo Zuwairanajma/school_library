@@ -1,10 +1,10 @@
 module Introductions
-    def welcome_message
+  def welcome_message
     puts 'Welcome to School Library App!'
-    end
+  end
 
-    def farewell_message
-        exit_message
-        exit
-    end
+  def farewell_message
+    exit_message
+    exit
+  end
 end
