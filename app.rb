@@ -38,36 +38,41 @@ class App
 
   def create_person()
     puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
-    is_student = UserInput.new.self_get
-    puts 'Enter person name:'
-    name = gets.chomp
-    puts 'Enter person age:'
-    age = UserInput.new.self_get
+    is_student = UserInput.self_get
 
     case is_student
     when 1
-      puts 'Does student have parent permission [Y/N]: '
-      permission = UserInput.new.user_permission
-      student = Student.new(1, age, permission, name)
-      @person << student
-
+      create_student
     when 2
-      print 'What is the teachers specialization: '
-      specialization = gets.chomp
-      teacher = Teacher.new(age, specialization, name)
-      @person << teacher
+      create_teacher
     end
+  end
 
-    puts 'Person created successfully.'
+  # private
+
+  def create_student
+    name = UserInput.get_input('Enter person name:')
+    age = UserInput.self_get('Enter person age:')
+    permission = UserInput.user_permission('Does student have parent permission [Y/N]: ')
+
+    student = Student.new(1, age, permission, name)
+    @person << student
+    puts 'Student created successfully.'
+  end
+
+  def create_teacher
+    name = UserInput.get_input('Enter person name:')
+    age = UserInput.self_get('Enter person age:')
+    specialization = UserInput.get_input('What is the teachers specialization: ')
+    teacher = Teacher.new(age, specialization, name)
+    @person << teacher
+    puts 'Teacher created successfully.'
   end
 
   # Creating book method
-
   def create_book
-    puts 'Enter book title:'
-    title = gets.chomp
-    puts 'Enter book author:'
-    author = gets.chomp
+    title = UserInput.get_input('Enter book title:')
+    author = UserInput.get_input('Enter book author:')
 
     book = Book.new(title, author)
     @books << book
@@ -82,7 +87,7 @@ class App
       puts "#{index} - Title: #{book.title}, Author: #{book.author}"
     end
 
-    book_index = UserInput.new.self_get
+    book_index = UserInput.self_get
     puts 'select a person by number'
     @person.each_with_index do |person, index|
       print "#{index} - #{person.class}, Name: #{person.name}"
@@ -93,7 +98,8 @@ class App
         puts "  Parent Permission: #{person.parent_permission}"
       end
     end
-    person_index = UserInput.new.self_get
+
+    person_index = UserInput.self_get
     puts 'Enter date:'
     date = gets.chomp
 
@@ -106,12 +112,15 @@ class App
   def list_rentals_for_person
     puts 'All Rentals:'
     @rentals.each do |rental|
-      puts "id of person: #{rental.person.id}"
-      puts "Name: #{rental.person.name}"
+      if rental.person
+        puts "id of person: #{rental.person.id}"
+        puts "Name: #{rental.person.name}"
+      else
+        puts 'Person information not available for this rental.'
+      end
     end
-
     puts 'Select ID:'
-    id = UserInput.new.self_get
+    id = UserInput.self_get
     rentals_found = @rentals.select { |rental| rental.person.id == id }
 
     if rentals_found.empty?
