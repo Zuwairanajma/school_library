@@ -98,6 +98,13 @@ To run tests, run the following command:
 - Twitter: [@SadiqJuwairiyya](https://twitter.com/SadiqJuwairiyya)
 - LinkedIn: [Zuwaira Sadiq](https://www.linkedin.com/in/zuwaira-sadiq-566b891b0?)
 
+👤 **Author2**
+  {*Collins Akorda*}
+
+- GitHub: [@firstpj](https://github.com/firstpj)
+- Twitter: [@AkordaC](https://twitter.com/AkordaC)
+- LinkedIn: [Collins Akorda](https://www.linkedin.com/in/collins-akorda-bb46b2232/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
