@@ -87,8 +87,13 @@ class App
     puts 'select a person by number'
     @person.each_with_index do |person, index|
       puts "#{index} - #{person.class}, Name: #{person.name}"
-    end
 
+      if person.instance_of?(Teacher)
+        puts "  #{index} - Specialization: #{person.specialization}"
+  else
+    puts "  #{index} - Parent Permission: #{person.parent_permission}"
+end
+end
     person_index = gets.chomp.to_i
     puts 'Enter date:'
     date = gets.chomp
