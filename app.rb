@@ -48,8 +48,6 @@ class App
     end
   end
 
-  # private
-
   def create_student
     name = UserInput.get_input('Enter person name:')
     age = UserInput.self_get('Enter person age:')
