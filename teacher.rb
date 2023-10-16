@@ -11,7 +11,7 @@ class Teacher < Person
   def to_hash
     super.merge(specialization: @specialization)
   end
-  
+
   def can_use_services?
     true
   end

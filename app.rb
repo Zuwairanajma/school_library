@@ -4,6 +4,7 @@ require_relative 'rental'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
+require_relative 'user_inputs'
 
 class App
   attr_reader :books, :person, :rentals, :classroom
@@ -36,18 +37,17 @@ class App
   end
 
   def create_person()
-    # puts 'press 1 for student, 2 for teacher'
     puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
-    is_student = gets.chomp.to_i
+    is_student = UserInput.new.self_get
     puts 'Enter person name:'
     name = gets.chomp
     puts 'Enter person age:'
-    age = gets.chomp.to_i
+    age = UserInput.new.self_get
 
     case is_student
     when 1
       puts 'Does student have parent permission [Y/N]: '
-      permission = gets.chomp.downcase == 'y'
+      permission = UserInput.new.user_permission
       student = Student.new(1, age, permission, name)
       @person << student
 
@@ -82,19 +82,18 @@ class App
       puts "#{index} - Title: #{book.title}, Author: #{book.author}"
     end
 
-    book_index = gets.chomp.to_i
-
+    book_index = UserInput.new.self_get
     puts 'select a person by number'
     @person.each_with_index do |person, index|
-      puts "#{index} - #{person.class}, Name: #{person.name}"
+      print "#{index} - #{person.class}, Name: #{person.name}"
 
       if person.instance_of?(Teacher)
-        puts "  #{index} - Specialization: #{person.specialization}"
-  else
-    puts "  #{index} - Parent Permission: #{person.parent_permission}"
-end
-end
-    person_index = gets.chomp.to_i
+        puts "  Specialization: #{person.specialization}"
+      else
+        puts "  Parent Permission: #{person.parent_permission}"
+      end
+    end
+    person_index = UserInput.new.self_get
     puts 'Enter date:'
     date = gets.chomp
 
@@ -112,8 +111,7 @@ end
     end
 
     puts 'Select ID:'
-    id = gets.chomp.to_i
-
+    id = UserInput.new.self_get
     rentals_found = @rentals.select { |rental| rental.person.id == id }
 
     if rentals_found.empty?
