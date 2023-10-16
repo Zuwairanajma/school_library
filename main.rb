@@ -3,6 +3,17 @@ require_relative 'show_menu'
 require_relative 'options'
 require_relative 'introduction'
 
+class UserInput
+  def self_get
+    gets.chomp.to_i
+  end
+
+  def user_permission
+    gets.chomp.downcase == 'y'
+  end
+end
+
+# cross check
 class Main
   include MenuMethods
   include Options
