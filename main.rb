@@ -3,7 +3,6 @@ require_relative 'show_menu'
 require_relative 'options'
 require_relative 'introduction'
 
-# cross check
 class Main
   include MenuMethods
   include Options
