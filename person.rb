@@ -1,6 +1,4 @@
 require_relative 'nameable'
-# require_relative 'rental'
-# require_relative 'teacher'
 
 class Person < Nameable
   def initialize(age, parent_permission, name = 'unknown')
